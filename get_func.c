@@ -18,6 +18,7 @@ int get_func(char c, va_list args)
 		 {'%', print_percent},
 		 {'d', print_d},
 		 {'i', print_i},
+		 {'o', print_octa},
 		 {'b', print_binary},
 		 {'x', print_hex_lower},
 		 {'u', print_u},

@@ -59,8 +59,8 @@ int print_u(va_list args) {
 int print_hex_lower(va_list args)
 {
         int count;
-        static char buffer[8];
-        char *ptr = &buffer[7];
+        static char buffer[1024];
+        char *ptr = &buffer[1023];
         static char  hex_chars[] = "0123456789abcdef";
         unsigned int n = va_arg(args, unsigned int);
 
@@ -83,8 +83,8 @@ int print_hex_lower(va_list args)
 int print_hex_higher(va_list args)
 {
         int count;
-	static char buffer[8];
-        char *ptr = &buffer[7];
+	static char buffer[1024];
+        char *ptr = &buffer[1023];
         static char  hex_chars[] = "0123456789ABCDEF";
         unsigned int n = va_arg(args, unsigned int);
 
@@ -103,4 +103,26 @@ int print_hex_higher(va_list args)
         }
         return count;
 }
+int print_octa(va_list args)
+{
+        int count;
+        static char buffer[1024];
+        char *ptr = &buffer[1023];
+        static char  chars[] = "0123456789ABCDEF";
+        unsigned int n = va_arg(args, unsigned int);
 
+        *ptr = '\0';
+        count = 0;
+
+        do{
+                *--ptr = chars[n % 8];
+                n /= 8;
+        } while (n != 0);
+        while (*ptr != '\0')
+        {
+                _putchar(*ptr);
+                count++;
+                ptr++;
+        }
+        return count;
+}
