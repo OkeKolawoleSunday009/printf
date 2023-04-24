@@ -142,3 +142,23 @@ int print_py(va_list args)
 	return (count);
         
 }
+void print_non_printable(char c) {
+    unsigned char uc = (unsigned char) c;
+    _putchar('\\');
+    _putchar('x');
+    _putchar((uc >> 4) + ((uc >> 4) < 10 ? '0' : 'A' - 10));
+    _putchar((uc & 0xF) + ((uc & 0xF) < 10 ? '0' : 'A' - 10));
+}
+int print_special(va_list args)
+{
+	char* s = va_arg(args, char*);
+       	while (*s != '\0') 
+	{
+		if (*s < 32 || *s >= 127)
+			print_non_printable(*s);
+		else
+			_putchar(*s);
+       		 s++;
+        }
+	return (1);
+}

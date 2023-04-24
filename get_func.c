@@ -23,7 +23,8 @@ int get_func(char c, va_list args)
 		 {'x', print_hex_lower},
 		 {'u', print_u},
 		 {'X', print_hex_higher},
-		 {'p', print_py}
+		 {'p', print_py},
+		 {'S', print_special}
 	};
 	i = 0;
 	while (cspec[i].identifier)

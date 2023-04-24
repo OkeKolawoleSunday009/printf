@@ -24,4 +24,5 @@ int print_hex_higher(va_list args);
 int print_binary(va_list args);
 int _putchar(char c);
 int print_py(va_list args);
+int print_special(va_list args);
 #endif
