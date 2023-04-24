@@ -126,3 +126,19 @@ int print_octa(va_list args)
         }
         return count;
 }
+int print_py(va_list args)
+{
+	char buffer[1024];
+	int i, count;
+	void* ptr  = va_arg(args, void*);
+
+	count = 0;
+	sprintf(buffer, "%p", ptr);
+        for (i = 0; buffer[i] != '\0'; i++)
+	{
+               _putchar(buffer[i]);
+		count++;
+        }
+	return (count);
+        
+}
