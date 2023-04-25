@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 		else
 			count += _putchar(format[i]);
 	}
-	va_end(a);
 	return (count);
 }
 
