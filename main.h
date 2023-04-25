@@ -28,6 +28,6 @@ int _putchar(char c);
 int print_py(va_list args);
 int print_special(va_list args);
 void handle_flags(char** format, int* flag_plus, int* flag_space, int* flag_hash);
-void my_printf(const char* format, ...);
+void my_printf(char** format, ...);
 void handle_long_and_short(char** format, ...);
 #endif

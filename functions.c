@@ -8,7 +8,8 @@ int  print_char(va_list args)
         int letter;
 
         letter = va_arg(args, int);
-        return (_putchar(letter));
+	_putchar(letter);
+	return (1);
 }
 
 int  print_string(va_list args)
@@ -42,7 +43,8 @@ int print_percent(va_list args)
         {
                 return (*str);
         }
-        return (_putchar(*str));
+        _putchar(*str);
+	return (1);
 }
 
 int print_d(va_list args)
@@ -52,12 +54,12 @@ int print_d(va_list args)
 
         count = 0;
         n = va_arg(args, int);
-                if (n < 0)
-                {
+        if (n < 0)
+        {
                         absolute = (n * -1);
                         count += _putchar('-');
-                }
-                else
+         }
+         else
                         absolute = n;
 
         aux = absolute;
