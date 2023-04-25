@@ -2,22 +2,24 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
-
+#include <limits.h>
 int print_binary(va_list args)
 {
-        unsigned int n, m, i, sum;
+        unsigned int n, i, sum;
         unsigned int a[32];
-        int count = 0;
+        int count;
+	unsigned int z;
+
+	z = 2147483647;
+	count = 0;
 
         n = va_arg(args, unsigned int);
-
-        m = 2147483648;
-        a[0] = n/m;
+        a[0] = n/z;
 
         for (i = 1; i < 32; i++)
         {
-                m /= 2;
-                a[i] = (n / m) % 2;
+                z /= 2;
+                a[i] = (n / z) % 2;
         }
         for (i = 0, sum = 0; i < 32; i++)
         {

@@ -27,8 +27,10 @@ int _printf(const char *format, ...)
 		{
 			count += _putchar(format[i] + format[i]);
 		}
+		else if (format[i] == '%' && (format[i + 1] != get_func(format[i + 1], a)))
+			count += _putchar(format[i] + format[i + 1]);
 		else
-			count += _putchar(format[i]);
+			 count += _putchar(format[i]);
 	}
 	return (count);
 }
